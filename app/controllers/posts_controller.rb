@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all 
+    p current_user
+    @posts = PostPolicy::Scope.new(current_user, Post).resolve
     authorize @posts
   end
 
