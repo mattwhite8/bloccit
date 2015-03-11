@@ -1,5 +1,5 @@
 
-<%= form_for [topic, post, post.comments.new] do |f| %>
+<%= form_for [ post, post.comments.new] do |f| %>
 <% if post.comments.new.errors.any? %>
 <div class="alert alert-danger">
   <h4>There are <%= pluralize(post.comments.errors.count, "error") %>.</h4>
