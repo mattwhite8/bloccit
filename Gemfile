@@ -16,6 +16,10 @@ gem 'rails', '4.1.0'
 group :development do
   gem "rails-erd"
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
  
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
