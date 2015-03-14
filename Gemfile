@@ -11,7 +11,9 @@ gem 'rails', '4.1.0'
  
  group :development do
    gem 'sqlite3'
+   gem 'pry'
  end
+
 
 group :development do
   gem "rails-erd"
