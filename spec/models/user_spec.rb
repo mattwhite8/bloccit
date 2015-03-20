@@ -3,8 +3,7 @@ require 'rails_helper'
 describe User do
   
   include TestFactories
-  
-  
+   
   
   describe "#favorited(post)" do
     
@@ -18,7 +17,8 @@ describe User do
     end
     
     it "returns the appropriate favorite if it exists" do
-      @user.favorites.create(post: @post)
+      
+      @user.favorites.create({post: @post})
       expect( @user.favorited(@post) ).not_to be_nil
     end
     
