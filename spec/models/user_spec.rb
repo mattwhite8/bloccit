@@ -3,7 +3,18 @@ require 'rails_helper'
 describe User do
   
   include TestFactories
-   
+  
+  describe "#voted(post)" do
+    
+    before do 
+      @post = associated_post
+      @user = authenticated_user      
+    end
+    
+    it "returns 'nil' if the user has not voted on the post" do
+      expect( @user.voted(@post) ).to be_nil
+    end
+  end   
   
   describe "#favorited(post)" do
     
@@ -29,6 +40,7 @@ describe User do
       
       expect( @user.favorited(post) ).to be_nil      
     end
+    
     
   end
 end
