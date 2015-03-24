@@ -1,4 +1,7 @@
 module TestFactories
+include Warden::Test::Helpers
+Warden.test_mode!
+  
   
    def associated_post(options = {})
       post_options = {
@@ -19,5 +22,16 @@ module TestFactories
       user.save
       user
     end
+  
+  def comment_without_email(options = {})
+    comment_options = {user: @user, 
+      post_id: associated_post.id, 
+      body: "A Comment"
+      }.merge(options)
+    comment = Comment.new(comment_options) 
+    allow(comment).to receive(:send_favorite_emails)
+    comment.save
+  end
+  
   
 end
