@@ -65,6 +65,10 @@ gem 'will_paginate', '~> 3.0.5'
 
 gem 'newrelic_rpm'
 
+gem 'puma', group: :production
+gem 'puma', group: :development 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
