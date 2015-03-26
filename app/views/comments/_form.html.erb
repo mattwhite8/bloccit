@@ -1,6 +1,5 @@
-
-<%= form_for [ post, post.comments.new] do |f| %>
-<% if post.comments.new.errors.any? %>
+<%= form_for [ @post, @post.comments.build ], remote: true do |f| %>
+<% if post.comments.build.errors.any? %>
 <div class="alert alert-danger">
   <h4>There are <%= pluralize(post.comments.errors.count, "error") %>.</h4>
   <ul>
@@ -10,7 +9,7 @@
   </ul>
 </div>
 <% end %>
-<%= form_group_tag(post.comments.new.errors[:body]) do %>
+<%= form_group_tag(post.comments.build.errors[:body]) do %>
 <%= f.label :body %>
 <%= f.text_area :body, rows: 1, class: 'form-control', placeholder: "Enter comment body" %>
 <% end %>
